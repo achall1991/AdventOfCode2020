@@ -4,7 +4,7 @@ import pandas as pd
 
 course = pd.read_csv('p3_input.txt', header=None)
 
-combinations = [[1, 1, 0], [3, 1, 0], [5, 1, 0], [7, 1, 0], [1, 2, 0]] # store different ways of traversing in format plus variable for number of trees encountered for later [Right X, Down Y, Trees]
+combinations = [[1, 1, 0], [3, 1, 0], [5, 1, 0], [7, 1, 0], [1, 2, 0]] # store different ways of traversing + number of trees encountered for each method in format [Right X, Down Y, Trees]
 
 i, incr, inci, t, ans = 0, 0, 0, 0, 1 # initialise variables for the below for loop - 'ans' starting at 1 so that it can be multiplied by the number of trees for the answer
 
