@@ -6,9 +6,6 @@ import math
 
 data = pd.read_csv('p5_input.txt', header=None)
 
-row_max = 7
-column_max = 127
-
 data['row'] = data[0].str.extract(r'(\S{7})')
 data['column'] = data[0].str.extract(r'(\S{3}\b)')
 
