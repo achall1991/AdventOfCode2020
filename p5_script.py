@@ -31,5 +31,5 @@ data['seat_id'] = ( data['row_num'] * 8 ) + data['col_num']  # answer is the max
 #find a seat ID where: ID does not exist but ID + 1 and ID -1 exists
 
 for i in range(data['seat_id'].min(), data['seat_id'].max()):
-    if ( i-1 in data['seat_id'].unique() ) and ( i-1 in data['seat_id'].unique() ) and ( i not in data['seat_id'].unique()):
+    if ( i+1 in data['seat_id'].unique() ) and ( i-1 in data['seat_id'].unique() ) and ( i not in data['seat_id'].unique()):
         print(i)    #uses series.unique() to check if the number i does not exist along with i+1 and i-1 (adjacent seats) existing with it
