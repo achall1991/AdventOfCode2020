@@ -21,7 +21,7 @@ list_of_instructions = program_data[(program_data['instruction'] == 'nop') | (pr
 for lineref in list_of_instructions.index:
     data = program_data.copy()                                                          #copy data into a fresh dataframe so that the original is not changed
     data.loc[lineref, 'instruction'] = substitution[data.loc[lineref, 'instruction']]   #substitute one instance of jmp for loc or vice versa before testing the program
-    i, line, acc_value = False, 0, 0                  # reset variables
+    i, line, acc_value = False, 0, 0                #reset variables
     while i == False:
         if data.loc[line, 'line_ran'] == False:       #'run' the program by iterating through the dataframe, adjusting index depending on the instruction given
             data.loc[line, 'line_ran'] = True
@@ -32,11 +32,11 @@ for lineref in list_of_instructions.index:
             elif data.loc[line, 'instruction'] == 'acc':
                 acc_value += data.loc[line, 'value']
                 line += 1
-            if line == 594:                 #if the program reaches line number 594 (i.e. the last line + 1) the program has run successfully
+            if line == len(program_data):                 #if the program reaches the last line + 1 (i.e. the length of the dataframe) the program has run successfully
                 i = True
         else:                               #exit the while loop if an instruction has been run twice (if 'line_ran' reads True)
             i = True
-    if line == 594:                          #if the program has run successfully, the for loop can be exited
+    if line == len(program_data):                          #if the program has run successfully, the for loop can be exited
         break
 
 print(acc_value)
