@@ -21,7 +21,7 @@ list_of_instructions = program_data[(program_data['instruction'] == 'nop') | (pr
 for lineref in list_of_instructions.index:
     data = program_data.copy()                                                          #copy data into a fresh dataframe so that the original is not changed
     data.loc[lineref, 'instruction'] = substitution[data.loc[lineref, 'instruction']]   #substitute one instance of jmp for loc or vice versa before testing the program
-    i, line, acc_value = False, 0, 0
+    i, line, acc_value = False, 0, 0                  # reset variables
     while i == False:
         if data.loc[line, 'line_ran'] == False:       #'run' the program by iterating through the dataframe, adjusting index depending on the instruction given
             data.loc[line, 'line_ran'] = True
